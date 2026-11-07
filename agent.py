@@ -22,8 +22,8 @@ def update_prices():
         new_price = float(response.text.strip())
         print(f"New Price is: ${new_price}")
         
-        # تحديث السعر في قاعدة البيانات
-        supabase.table('products').update({'price': new_price}).ilike('title', '%سلة%').execute()
+        # التعديل هنا: استخدام price_usd و title_ar لتطابق قاعدة بياناتك
+        supabase.table('products').update({'price_usd': new_price}).ilike('title_ar', '%سلة%').execute()
         print("Database Updated Successfully!")
     except Exception as e:
         print(f"Error: {e}")
